@@ -26,20 +26,19 @@ def delete_task():
       removed = tasks.pop(index)# tasksリストからそのインデックスのタスクを取り出し（削除）変数removedに格納
       listbox.delete(index)     # listbox（画面上のリスト）から同じインデックスの項目を削除
       messagebox.showinfo("削除完了", f"「{removed}」を削除しました。")
-      
     else:
         messagebox.showwarning("選択エラー", "削除するタスクを選んでください。")
 
 # ウィンドウ作成
 root = tk.Tk()  # アプリのメインウィンドウを作成する（ここがGUIのスタート地点）
 root.title("ToDoアプリ")  # ウィンドウのタイトルを「ToDoアプリ」に設定
+root.geometry("400x400")  # ウィンドウの初期サイズを設定
 
 # 入力欄と追加ボタン
-entry = tk.Entry(root, width=40)#入力欄を追加
+entry = tk.Entry(root, width=40)
 entry.pack(pady=5)
 
 add_button = tk.Button(root, text="タスクを追加", command=add_task)
-#ボタンを生成　ボタンを押すとadd_task関数が実行される
 add_button.pack()
 
 # タスクリスト表示
