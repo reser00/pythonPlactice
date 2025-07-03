@@ -35,11 +35,10 @@ root = tk.Tk()  # アプリのメインウィンドウを作成する（ここ�
 root.title("ToDoアプリ")  # ウィンドウのタイトルを「ToDoアプリ」に設定
 
 # 入力欄と追加ボタン
-entry = tk.Entry(root, width=40)#入力欄を追加
+entry = tk.Entry(root, width=40)#入力欄を
 entry.pack(pady=5)
 
 add_button = tk.Button(root, text="タスクを追加", command=add_task)
-#ボタンを生成　ボタンを押すとadd_task関数が実行される
 add_button.pack()
 
 # タスクリスト表示
