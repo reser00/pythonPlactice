@@ -9,7 +9,7 @@ import json
 
 # --- グローバル設定（両アプリで共有） ---
 # OpenWeatherMap APIキー
-API_KEY = "7f947de9886f2e3182e1aac7d4147461" # ★重要: あなたのAPIキーを設定してください
+API_KEY = "your_api_key_here" # ★重要: あなたのAPIキーを設定してください
 
 # 天気アプリで使用する都市リスト
 CITIES = {
