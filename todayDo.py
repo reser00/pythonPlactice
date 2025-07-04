@@ -278,9 +278,17 @@ class ToDoApp(tk.Frame):
         self.entry.delete(0, tk.END)
 
     def toggle_todo_status(self, event):
-        selected_iid = self.todo_tree.focus()
+        # クリックされた位置のアイテムIDを取得
+        selected_iid = self.todo_tree.identify_row(event.y)
+
+        # アイテムがない場所がクリックされたら、フォーカスと選択を外す
         if not selected_iid:
+            self.todo_tree.focus('')
+            self.todo_tree.selection_remove(self.todo_tree.selection()) # 選択を解除
             return
+
+        # アイテムがクリックされた場合、そのアイテムにフォーカスを当てる
+        self.todo_tree.focus(selected_iid)
 
         task = next((t for t in self.tasks if t['id'] == selected_iid), None)
         if not task or task['location'] != 'todo_list':
@@ -304,9 +312,17 @@ class ToDoApp(tk.Frame):
             self.todo_tree.item(selected_iid, text=display_text, tags=(), values=([display_status]))
 
     def toggle_done_status(self, event):
-        selected_iid = self.done_tree.focus()
+        # クリックされた位置のアイテムIDを取得
+        selected_iid = self.done_tree.identify_row(event.y)
+
+        # アイテムがない場所がクリックされたら、フォーカスと選択を外す
         if not selected_iid:
+            self.done_tree.focus('')
+            self.done_tree.selection_remove(self.done_tree.selection()) # 選択を解除
             return
+
+        # アイテムがクリックされた場合、そのアイテムにフォーカスを当てる
+        self.done_tree.focus(selected_iid)
 
         task = next((t for t in self.tasks if t['id'] == selected_iid), None)
         if not task or task['location'] != 'done_list':
